@@ -213,7 +213,7 @@ for_window [title="qBittorrent"] floating enable border pixel 1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-
+exec xinput set-prop 12 321 1
 # Set inner/outer gaps
 for_window [class=".*"] border pixel 2  
 
