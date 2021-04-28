@@ -13,7 +13,7 @@ alias stoptor='sudo systemctl stop tor'
 alias cat='ccat'
 alias lst='ls --tree'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
+alias loc='/srv/http'
 
 ##NO NEED##
 alias gg='Desktop/Code'
