@@ -50,7 +50,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-
+bindsym $mod+Shift+Return exec kitty
 # kill focused window
 bindsym $mod+q kill
 
@@ -195,7 +195,7 @@ bar {
 	#status_command i3status	
 	position top
 	status_command /home/morphy/.config/bumblebee-status/bumblebee-status \
-		-m title memory sensors battery brightness amixer weather datetime uptime \
+		-m title memory sensors battery brightness amixer datetime uptime \
 		-t greyish-powerline \
 		-p title.max
 		
@@ -213,6 +213,7 @@ for_window [title="qBittorrent"] floating enable border pixel 1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom --experimental-backends --vsync
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+
 #Tapping Enable
 exec xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1 
 
