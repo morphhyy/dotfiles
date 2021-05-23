@@ -14,6 +14,7 @@ alias cat='ccat'
 alias lst='ls --tree'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias loc='/srv/http'
+alias upload='curl https://free.keep.sh/ --upload-file'
 
 ##NO NEED##
 alias gg='Desktop/Code'
