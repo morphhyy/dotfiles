@@ -15,7 +15,9 @@ alias lst='ls --tree'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias loc='/srv/http'
 alias upload='curl https://free.keep.sh/ --upload-file'
+alias dsy='~/.emacs.d/bin/doom sync'
 
 ##NO NEED##
-alias gg='Desktop/Code'
+alias gg='~/Desktop/Code'
 alias check='bpytop'
+alias wtr='curl wttr.in'

@@ -25,7 +25,7 @@ font pango:FiraCode Nerd Font 9
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-bindsym $mod+Escape exec betterlockscreen -l dim
+bindsym $mod+Escape exec i3lock -u -i Pictures/wallpapers/0102.jpg
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -159,8 +159,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #shutdown
 bindsym $mod+ctrl+e exec shutdown now
 
+#open filemanager
+bindsym $mod+p exec nautilus&
+
 #sleep & lock
-bindsym $mod+ctrl+s exec systemctl suspend -i && exec betterlockscreen -l dim
+bindsym $mod+ctrl+s exec systemctl suspend -i && exec i3lock -u -i Pictures/wallpapers/0102.jpg
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -196,9 +199,14 @@ bar {
 	position top
 	status_command /home/morphy/.config/bumblebee-status/bumblebee-status \
 		-m title memory sensors battery brightness amixer datetime uptime \
-		-t greyish-powerline \
+		-t gruvbox-powerline \
 		-p title.max
-		
+	
+	  #status_command exec /home/morphy/.config/i3status/i3status/mybar.sh
+ #colors {
+    #        focused_workspace #1e81b0 #282828 #fabd2f
+     #       inactive_workspace #1e81b0 #282828 #fabd2f
+  #      }
 }
 
 #---------------#
@@ -207,7 +215,9 @@ bar {
 for_window [title="Nitrogen"] floating enable border pixel 1
 for_window [title="Volume Control"] floating enable border pixel 1
 for_window [title="qBittorrent"] floating enable border pixel 1
-#for_window [title="Home"] floating enable border pixel 1
+for_window [title="Calculator"] floating enable border pixel 1
+for_window [title="kitty"] floating enable border pixel 1
+#for_window [title=" "] floating enable border pixel 1
 
 #Autostart Application
 exec --no-startup-id nitrogen --restore
@@ -226,11 +236,30 @@ hide_edge_borders none
 gaps inner 13
 gaps outer -2 
 
+# move floating windows with keys
+bindsym $mod+n mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #bbff99  #ff0000
-  client.focused_inactive #2F3D44 #2F3D44 #AD69AF #454948
-  client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
+  client.focused          #556064 #556064 #80FFF9 #bbff99  #0eafb5
+  client.focused_inactive #2F3D44 #2F3D44 #AD69AF #454948  #572f6e
+  client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948  #b50e0e
   client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
 
