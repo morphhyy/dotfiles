@@ -16,6 +16,7 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias loc='/srv/http'
 alias upload='curl https://free.keep.sh/ --upload-file'
 alias dsy='~/.emacs.d/bin/doom sync'
+alias copy='xclip -selection clipboard -i'
 
 ##NO NEED##
 alias gg='~/Desktop/Code'

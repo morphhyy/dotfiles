@@ -117,3 +117,4 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
+
