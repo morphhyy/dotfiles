@@ -48,8 +48,8 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 nmap <C-s> :w<CR>
 "Quit
 nmap <C-q> :q<CR>
-
-
+" Copy all
+nmap <C-a> ggvG<CR>
 "NERDTreeToggle
 vmap <C-_> <plug>NERDCommenterToggle<CR>gv
 nmap <C-_> <plug>NERDCommenterToggle<CR>
@@ -74,8 +74,8 @@ vmap <A-Up> :m '<-2<CR>gv
 
 
 " Switching between tabs
-nmap <C-Left> :tabp<CR>
-nmap <C-Right> :tabn<CR
+nnoremap <C-Left> :BufferLineCyclePrev<CR>
+nnoremap <C-Right> :BufferLineCycleNext<CR>
 
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -87,8 +87,6 @@ vmap <C-c> y<CR>
 
 "Airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme = 'onedark'
 
 " Copy into clipboard
@@ -107,8 +105,21 @@ function! OpenTerminal()
   resize 10
 endfunction
 
-function! OpenVTerminal()
-	vsplit term://zsh
-endfunction
 nmap <c-b> :call OpenTerminal()<CR>
-nmap <c-A-b> :call OpenVTerminal()<CR> 
+
+lua << EOF
+require("bufferline").setup{
+options = {
+	mode = "tabs",
+	separator_style = "slant",
+	diagnostics = "coc",
+	}
+}
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = {"javascript"},
+	highlight = { enable = true },
+	incremental_selection = { enable = true },
+	indent = { enable = true },
+	textobjects = { enable = true },
+}
+EOF
