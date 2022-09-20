@@ -28,6 +28,8 @@ return require('packer').startup(function()
         requires = { {'nvim-lua/plenary.nvim'} 
     }
 }
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     -- LSP    
     use {
         "williamboman/nvim-lsp-installer",
