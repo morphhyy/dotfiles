@@ -19,6 +19,3 @@ map('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)
 
 -- Packer Sync
 map('n', '<leader>ps', ':PackerSync<CR>', opts)
-
---Source
-map('n', '<leader>lf', ':so %<CR>', opts)
