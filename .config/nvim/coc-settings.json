@@ -1,6 +1,0 @@
-{
-    "coc.preferences.formatOnSaveFiletypes": ["*"],
-    "diagnostic.virtualText": true,
-    "prettier.tabWidth": 4,
-    "prettier.semi": false
-}
