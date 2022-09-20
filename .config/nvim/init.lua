@@ -8,3 +8,6 @@ require('lsp-config.nvim_cmp')
 
 require('configs.toggleterm')
 require('configs.nvim_tree')
+require('configs.lualine')
+require('configs.bufferline')
+require('configs.parser')

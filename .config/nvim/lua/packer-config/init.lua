@@ -9,7 +9,26 @@ return require('packer').startup(function()
             'kyazdani42/nvim-web-devicons',
   },
 }
-    
+   
+    use 'akinsho/toggleterm.nvim'
+
+    use 'nvim-lualine/lualine.nvim'
+
+    use 'rcarriga/nvim-notify'
+
+    use { 'akinsho/bufferline.nvim', tag = "v2.*" }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} 
+    }
+}
+    -- LSP    
     use {
         "williamboman/nvim-lsp-installer",
         "neovim/nvim-lspconfig",
@@ -19,11 +38,6 @@ return require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'onsails/lspkind.nvim'
-    use {
-        "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end
-}
-
+ 
 end)
 

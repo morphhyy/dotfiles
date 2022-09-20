@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
-    adaptive_size = true,
+    width = 25,
     mappings = {
       list = {
         { key = "u", action = "dir_up" },
@@ -17,4 +17,5 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  filters = { custom = { "^.git$" } }
 })
