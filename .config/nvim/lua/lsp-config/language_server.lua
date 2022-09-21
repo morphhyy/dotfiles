@@ -1,4 +1,6 @@
 local opts = { noremap = true, silent = true }
+local nvim_lsp = require("lspconfig")
+local servers = { "pyright", "tsserver", "solang", "emmet_ls" }
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -33,8 +35,6 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
-local nvim_lsp = require("lspconfig")
-local servers = { "pyright", "tsserver", "solang", "emmet_ls" }
 
 require("mason").setup({
 	ui = {
