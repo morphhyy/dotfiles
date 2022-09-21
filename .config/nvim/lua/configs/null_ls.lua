@@ -21,5 +21,5 @@ require("null-ls").setup({
                 end,
             })
         end
-    end,
+    end
 })

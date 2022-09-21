@@ -1,5 +1,3 @@
--- Mappings.
-
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -9,7 +7,6 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	-- Mappings.
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -37,15 +34,14 @@ local lsp_flags = {
 }
 
 local nvim_lsp = require("lspconfig")
-local servers = { "pyright", "tsserver", "solang" }
+local servers = { "pyright", "tsserver", "solang", "emmet_ls" }
 
-require("nvim-lsp-installer").setup({
-	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+require("mason").setup({
 	ui = {
 		icons = {
-			server_installed = "✓",
-			server_pending = "➜",
-			server_uninstalled = "✗",
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
 		},
 	},
 })

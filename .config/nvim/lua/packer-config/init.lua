@@ -38,11 +38,15 @@ return require("packer").startup(function()
 		end,
 	})
 
-	-- LSP
 	use({
-		"williamboman/nvim-lsp-installer",
-		"neovim/nvim-lspconfig",
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
 	})
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use({ "williamboman/mason.nvim" })
 	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
