@@ -22,12 +22,14 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 
+	use("nvim-lua/plenary.nvim")
+	-- Requires plenary
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
+	---
 
 	use("lukas-reineke/indent-blankline.nvim")
 
@@ -38,12 +40,9 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	})
+	use("rafamadriz/friendly-snippets")
+
+	use("windwp/nvim-autopairs")
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({ "williamboman/mason.nvim" })
