@@ -9,9 +9,6 @@ require("nvim-treesitter.configs").setup({
 		"python",
 	},
 
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
-
 	-- Automatically install missing parsers when entering buffer
 	auto_install = true,
 
@@ -20,5 +17,8 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
 	},
 })

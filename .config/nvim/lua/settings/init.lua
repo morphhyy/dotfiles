@@ -25,3 +25,4 @@ set.hidden = true
 set.mouse = "a"
 set.autoindent = true
 set.clipboard = "unnamedplus"
+set.signcolumn = "yes"

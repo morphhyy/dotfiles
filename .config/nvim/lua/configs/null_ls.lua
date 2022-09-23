@@ -5,7 +5,11 @@ local sources = {
 	-- formatting.prettier,
 	formatting.autopep8,
 	formatting.stylua,
-	-- null_ls.builtins.diagnostics.solhint,
+	formatting.clang_format,
+    formatting.phpcsfixer,
+    formatting.gofmt,
+    null_ls.builtins.completion.luasnip,
+    -- null_ls.builtins.diagnostics.solhint,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

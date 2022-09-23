@@ -3,6 +3,8 @@ local opts = { noremap = true, silent = true }
 
 -- Leader Key
 vim.g.mapleader = " "
+-- ESC
+map("i", "jj", "<ESC>", opts)
 
 -- NVIM TREE
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
@@ -13,6 +15,7 @@ map("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)
 -- Save and Exit
 map("n", "<C-s>", ":w<CR>", opts)
 map("n", "<C-q>", ":q<CR>", opts)
+map("n", "<leader><leader>q", ":q!<CR>", opts)
 
 -- Remove Highlight
 map("n", "<leader><CR>", ":noh<CR>", opts)
@@ -51,3 +54,7 @@ map("n", "<C-_>", "gcc", opts)
 map("n", "<C-a>", "ggVG", opts)
 map("v", "<C-c>", "y", opts)
 map("v", "<leader>y", '"+y', opts)
+
+-- ToggleTerm
+map("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts)
+map("n", "<C-o>", ":ToggleTerm direction=float<CR>", opts)

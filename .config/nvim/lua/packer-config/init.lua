@@ -40,9 +40,13 @@ return require("packer").startup(function()
 		end,
 	})
 
-	use("rafamadriz/friendly-snippets")
-
 	use("windwp/nvim-autopairs")
+	use({
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup()
+		end,
+	})
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({ "williamboman/mason.nvim" })
