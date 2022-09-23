@@ -2,14 +2,15 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 
 local sources = {
-	-- formatting.prettier,
+	formatting.prettier.with({
+        disabled_filetypes = { "javascript", "typescript" }
+	}),
 	formatting.autopep8,
 	formatting.stylua,
 	formatting.clang_format,
-    formatting.phpcsfixer,
-    formatting.gofmt,
-    null_ls.builtins.completion.luasnip,
-    -- null_ls.builtins.diagnostics.solhint,
+	formatting.phpcsfixer,
+	formatting.gofmt,
+	null_ls.builtins.diagnostics.solhint,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

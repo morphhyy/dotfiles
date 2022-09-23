@@ -13,7 +13,6 @@ set.smartcase = true
 
 set.splitbelow = true
 set.splitright = true
-set.wrap = false
 set.scrolloff = 5
 set.termguicolors = true
 

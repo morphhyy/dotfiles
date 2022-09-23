@@ -47,6 +47,7 @@ return require("packer").startup(function()
 			require("trouble").setup()
 		end,
 	})
+	use("rafamadriz/friendly-snippets")
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({ "williamboman/mason.nvim" })

@@ -47,10 +47,6 @@ map("n", "<C-p>", ":Telescope find_files<CR>", opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
--- Commenting
-map("n", "<C-_>", "gcc", opts)
-
 -- Copying
 map("n", "<C-a>", "ggVG", opts)
 map("v", "<C-c>", "y", opts)
-map("v", "<leader>y", '"+y', opts)
