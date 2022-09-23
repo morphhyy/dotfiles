@@ -54,7 +54,3 @@ map("n", "<C-_>", "gcc", opts)
 map("n", "<C-a>", "ggVG", opts)
 map("v", "<C-c>", "y", opts)
 map("v", "<leader>y", '"+y', opts)
-
--- ToggleTerm
-map("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts)
-map("n", "<C-o>", ":ToggleTerm direction=float<CR>", opts)
