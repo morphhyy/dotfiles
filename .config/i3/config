@@ -29,6 +29,7 @@ bindsym $mod+Escape exec i3lock -u -i Pictures/wallpapers/0102.jpg
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --right-of eDP-1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

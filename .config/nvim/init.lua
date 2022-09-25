@@ -1,6 +1,6 @@
+require("packer-config")
 require("settings")
 require("mappings")
-require("packer-config")
 
 require("colors.onedark")
 require("lsp-config.language_server")
