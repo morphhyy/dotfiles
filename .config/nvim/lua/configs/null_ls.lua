@@ -3,7 +3,7 @@ local formatting = null_ls.builtins.formatting
 
 local sources = {
 	formatting.prettier.with({
-		disabled_filetypes = { "javascript", "typescript" },
+		disabled_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 	}),
 	formatting.autopep8,
 	formatting.stylua,
