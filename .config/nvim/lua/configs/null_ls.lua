@@ -3,7 +3,12 @@ local formatting = null_ls.builtins.formatting
 
 local sources = {
 	formatting.prettier.with({
-		disabled_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+		-- disabled_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+		extra_args = function(params)
+			return params.options and params.options.tabSize and {
+				params.options.tabSize,
+			}
+		end,
 	}),
 	formatting.autopep8,
 	formatting.stylua,
@@ -23,7 +28,10 @@ require("null-ls").setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format()
+					vim.lsp.buf.format({ 
+                        bufnr = bufnr, 
+                        -- timeout_ms = 5000 
+                    })
 				end,
 			})
 		end
