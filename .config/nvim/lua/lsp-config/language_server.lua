@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 local nvim_lsp = require("lspconfig")
-local servers = { "pyright", "tsserver", "emmet_ls", "solidity" }
+local servers = { "pyright", "tsserver", "emmet_ls", "solidity", "tailwindcss", "cssls" }
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
