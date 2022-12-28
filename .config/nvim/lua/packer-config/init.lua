@@ -56,4 +56,17 @@ return require("packer").startup(function()
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("onsails/lspkind.nvim")
+
+
+    use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+
+        saga.init_lsp_saga({
+            -- your configuration
+        })
+    end,
+})
 end)
