@@ -58,17 +58,13 @@ return require("packer").startup(function()
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("onsails/lspkind.nvim")
 
+	use("mg979/vim-visual-multi")
+
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = function()
-			local saga = require("lspsaga")
-
-			saga.init_lsp_saga({
-				-- your configuration
-			})
+			require("lspsaga").setup({})
 		end,
-
-		use("mg979/vim-visual-multi"),
 	})
 end)
