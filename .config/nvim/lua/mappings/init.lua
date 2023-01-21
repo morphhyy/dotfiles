@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 map("i", "jj", "<ESC>", opts)
 
 -- NVIM TREE
-map("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+map("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 map("n", "<leader>o", ":NvimTreeFocus<CR>", opts)
 -- Refresh Nvim Tree
 map("n", "<leader>r", ":NvimTreeRefresh<CR>", opts)

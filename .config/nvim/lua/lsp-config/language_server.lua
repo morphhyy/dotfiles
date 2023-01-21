@@ -1,11 +1,15 @@
 local opts = { noremap = true, silent = true }
 local nvim_lsp = require("lspconfig")
-local servers = { "pyright", "tsserver", "emmet_ls", "solidity", "tailwindcss", "cssls" }
+local servers = { "pyright", "tsserver", "emmet_ls", "solidity", "tailwindcss", "cssls", "jsonls" }
 local keymap = vim.keymap.set
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+-- You will likely want to reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -26,23 +30,23 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts) ]]
-    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, bufopts)
-    keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-    keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-    keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-    keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-    keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-    keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-    keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-    keymap("n", "[E", function()
-      require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-    end, { silent = true })
-    keymap("n", "]E", function()
-      require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-    end, { silent = true })
-    keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
-    keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, bufopts)
+	keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+	keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+	keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+	keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+	keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+	keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+	keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+	keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+	keymap("n", "[E", function()
+		require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end, { silent = true })
+	keymap("n", "]E", function()
+		require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end, { silent = true })
+	keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+	keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -70,3 +74,8 @@ for _, lsp in ipairs(servers) do
 		flags = lsp_flags,
 	})
 end
+
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_installation = true,
+})

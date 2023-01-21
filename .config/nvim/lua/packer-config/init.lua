@@ -49,24 +49,26 @@ return require("packer").startup(function()
 	})
 	use("rafamadriz/friendly-snippets")
 	-- LSP
-	use("neovim/nvim-lspconfig")
+	use("williamboman/mason-lspconfig.nvim")
 	use({ "williamboman/mason.nvim" })
+	use("neovim/nvim-lspconfig")
 	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("onsails/lspkind.nvim")
 
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			local saga = require("lspsaga")
 
-    use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-        local saga = require("lspsaga")
+			saga.init_lsp_saga({
+				-- your configuration
+			})
+		end,
 
-        saga.init_lsp_saga({
-            -- your configuration
-        })
-    end,
-})
+		use("mg979/vim-visual-multi"),
+	})
 end)
