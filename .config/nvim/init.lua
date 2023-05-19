@@ -1,4 +1,4 @@
-require("packer-config")
+require("lazy-config")
 require("settings")
 require("mappings")
 
