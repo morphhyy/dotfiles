@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	"wbthomason/packer.nvim",
 	"navarasu/onedark.nvim",
+    "andweeb/presence.nvim",
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = {
@@ -22,7 +23,7 @@ local plugins = {
 	},
 	"akinsho/toggleterm.nvim",
 	"nvim-lualine/lualine.nvim",
-	"rcarriga/nvim-notify",
+    -- "rcarriga/nvim-notify",
     {
         'akinsho/bufferline.nvim',
         version = "*" 
