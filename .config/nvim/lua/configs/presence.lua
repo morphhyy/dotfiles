@@ -4,6 +4,6 @@ require("presence").setup({
     enable_line_number = false,
     buttons = false,
     blacklist = {},
-    editing_text = 'Editing ╰┈➤ 💣☠ ' ,
-    workspace_text = 'Working on /dev/null',
+    editing_text = '➤ 💣 ☠ ' ,
+    workspace_text = 'Working on /dev',
 })
