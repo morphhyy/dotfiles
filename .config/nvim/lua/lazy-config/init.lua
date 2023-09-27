@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    "github/copilot.vim",
 	"wbthomason/packer.nvim",
 	"navarasu/onedark.nvim",
     "andweeb/presence.nvim",
