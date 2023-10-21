@@ -1,21 +1,21 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    "github/copilot.vim",
+	"github/copilot.vim",
 	"wbthomason/packer.nvim",
 	"navarasu/onedark.nvim",
-    "andweeb/presence.nvim",
+	"andweeb/presence.nvim",
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = {
@@ -24,11 +24,11 @@ local plugins = {
 	},
 	"akinsho/toggleterm.nvim",
 	"nvim-lualine/lualine.nvim",
-    -- "rcarriga/nvim-notify",
-    {
-        'akinsho/bufferline.nvim',
-        version = "*" 
-    },
+	-- "rcarriga/nvim-notify",
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -37,10 +37,12 @@ local plugins = {
 	-- Requires plenary
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		tag = "0.1.4",
+		-- or                              , branch = '0.1.x',
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"jose-elias-alvarez/null-ls.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -71,9 +73,8 @@ local plugins = {
 		config = function()
 			require("lspsaga").setup({})
 		end,
-	}
+	},
 }
 
-
 local opts = {}
-require('lazy').setup(plugins, opts)
+require("lazy").setup(plugins, opts)
